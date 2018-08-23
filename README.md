@@ -28,7 +28,7 @@ I try WGAN-GP and LS-GAN 's loss, but the result is not good. Maybe my code is w
 Then I change discriminator become autoencoder and try BEGAN 's loss, It is look good.<br>
 <br>
 The VAE output after training is still blurry, but I found that the reconstructed image of the discriminator can make the VAE output clearer.<br>
-The main network structure is my simple custom resnet, which should be different from DCGAN.<br>
+The main network structure is my simple custom resnet, which should be different to DCGAN.<br>
 
 # Training Log
 My training process output and logs can be found in the imgs and logs folders respectively.<br>
