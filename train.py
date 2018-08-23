@@ -7,7 +7,7 @@ import vae_net
 import discriminator_net
 import classifier_net
 # from skimage.transform import resize
-import my_py_lib.utils
+# import my_py_lib.utils
 import os
 from progressbar import progressbar
 print('加载 tf 耗时', time()-t1)
@@ -90,7 +90,10 @@ sum_file = tf.summary.FileWriter('logs', tf.get_default_graph())
 g_optim = tf.train.AdamOptimizer(lr_placeholder).minimize(kl_loss_op + g_loss_op, var_list=encoder.all_params + decoder.all_params)
 d_optim = tf.train.AdamOptimizer(lr_placeholder).minimize(d_loss_op + c_loss_op, var_list=discriminator_real.all_params + classifier_real.all_params)
 
-sess = my_py_lib.utils.get_auto_grow_session()
+config = tf.ConfigProto()
+config.gpu_options.allow_growth = True
+config.allow_soft_placement = True
+sess = tf.Session(config=config)
 sess.run(tf.global_variables_initializer())
 
 tl.files.load_and_assign_npz(sess, 'encoder.npz', encoder)
