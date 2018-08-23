@@ -12,6 +12,9 @@ import os
 from progressbar import progressbar
 print('加载 tf 耗时', time()-t1)
 
+tl.logging.set_verbosity('INFO')
+
+
 t1 = time()
 # 加载和处理数据
 x_dataset, y_dataset = tl.files.load_mnist_dataset((-1, 28, 28, 1))[:2]
