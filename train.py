@@ -14,7 +14,7 @@ print('加载 tf 耗时', time()-t1)
 
 t1 = time()
 # 加载和处理数据
-x_dataset, y_dataset = tl.files.load_mnist_dataset((-1, 28, 28, 1), '../datasets')[:2]
+x_dataset, y_dataset = tl.files.load_mnist_dataset((-1, 28, 28, 1))[:2]
 # x_dataset = np.array([resize(i, (32, 32), 3, 'constant', 0, True, False, False) for i in x_dataset], np.float32)
 x_dataset = tl.prepro.threading_data(x_dataset, tl.prepro.imresize, size=(32, 32)) / 255.
 print('加载数据集耗时', time() - t1)
