@@ -13,8 +13,10 @@ classes_label = tf.placeholder(tf.int32, [None, ])
 z_placeholder = tf.placeholder(tf.float32, [None, 64])
 
 decoder, decoder_output = vae_net.get_decoder(z_placeholder, classes_label, False)
-
 discriminator_fake, discriminator_fake_output = discriminator_net.get_discriminator(decoder_output, False)
+
+print('decoder params count', decoder.count_params())
+print('discriminator params count', discriminator_fake.count_params())
 
 config = tf.ConfigProto()
 config.gpu_options.allow_growth = True
