@@ -41,6 +41,11 @@ classifier_fake, classifier_fake_output = classifier_net.get_classifier(decoder_
 discriminator_real, discriminator_real_output = discriminator_net.get_discriminator(img, False)
 discriminator_fake, discriminator_fake_output = discriminator_net.get_discriminator(decoder_output, True)
 
+print('encoder params count', encoder.count_params())
+print('decoder params count', decoder.count_params())
+print('classifier params count', classifier_real.count_params())
+print('discriminator params count', discriminator_real.count_params())
+
 def get_kl_loss(mean, log_sigma):
     # 限制 exp 的值，以免爆炸
     log_sigma = tf.minimum(log_sigma, 20)
