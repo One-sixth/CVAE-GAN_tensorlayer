@@ -18,7 +18,7 @@ A CVAE-GAN implementation with tensorlayer.<br>
 tensorflow<br>
 tensorlayer<br>
 numpy<br>
-progress2<br>
+progressbar2<br>
 
 My test environment is tensorflow-gpu-1.10, tensorlayer-1.91, gtx970m-3g.<br>
 
