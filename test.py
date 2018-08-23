@@ -6,6 +6,8 @@ import discriminator_net
 import os
 from progressbar import progressbar
 
+tl.logging.set_verbosity('INFO')
+
 
 classes_label = tf.placeholder(tf.int32, [None, ])
 z_placeholder = tf.placeholder(tf.float32, [None, 64])
